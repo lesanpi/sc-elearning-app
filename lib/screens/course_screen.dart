@@ -64,10 +64,6 @@ class CourseScreen extends StatelessWidget {
                       ),
                       textAlign: TextAlign.center,
                     ),
-                    /*Icon(
-                            Icons.arrow_back_rounded, // arrow_back_ios_sharp
-                            color: App.myBlack, size: 30,
-                          ),*/
                     margin: EdgeInsets.only(right: 0),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.all(Radius.circular(20))),
@@ -96,8 +92,8 @@ class CourseScreen extends StatelessWidget {
             ],
           ),
         ),
-        Container(
-          height: screenHeight - 111,
+        Expanded(
+          // height: screenHeight - 111,
           child: ListView(
             children: [
               Container(

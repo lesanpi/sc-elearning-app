@@ -257,11 +257,13 @@ class _VideoPlayerScreen extends State<VideoPlayerScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                   ),
                 ),
-                ContentList(
-                  contentList: widget.course.contentList,
-                  mini: true,
-                  course: widget.course,
-                  currentContentId: widget.lesson.id,
+                Expanded(
+                  child: ContentList(
+                    contentList: widget.course.contentList,
+                    mini: true,
+                    course: widget.course,
+                    currentContentId: widget.lesson.id,
+                  ),
                 ),
                 /*
                 Expanded(

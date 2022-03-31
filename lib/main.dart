@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:sc_elearning/model/App.dart';
 import 'package:sc_elearning/model/MyThemes.dart';
 import 'package:sc_elearning/screens/game_menu_screen.dart';
 import 'package:sc_elearning/screens/home_screen.dart';
 
 void main() {
-  WidgetsFlutterBinding.ensureInitialized();
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
@@ -39,10 +40,32 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
 
+  @override
+  void initState() {
+    super.initState();
+    initialization();
+  }
+
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
     });
+  }
+
+  void initialization() async {
+    final isDarkTheme =
+        MediaQuery.of(context).platformBrightness == Brightness.dark;
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: isDarkTheme ? Colors.grey.shade900 : Colors.white,
+      systemNavigationBarColor:
+          isDarkTheme ? Colors.grey.shade900 : Colors.white,
+      systemNavigationBarIconBrightness:
+          isDarkTheme ? Brightness.light : Brightness.dark,
+      statusBarBrightness: isDarkTheme ? Brightness.dark : Brightness.light,
+      statusBarIconBrightness: isDarkTheme ? Brightness.light : Brightness.dark,
+    ));
+    // await Future.delayed(const Duration(seconds: 3));
+    // FlutterNativeSplash.remove();
   }
 
   @override
