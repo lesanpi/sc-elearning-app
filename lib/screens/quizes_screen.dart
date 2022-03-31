@@ -1,0 +1,118 @@
+import 'package:flutter/material.dart';
+import 'package:sc_elearning/model/CourseQuiz.dart';
+import 'package:sc_elearning/widgets/quiz_item.dart';
+
+class QuizesScreen extends StatelessWidget {
+  CourseQuiz courseQuiz;
+
+  QuizesScreen({required this.courseQuiz});
+
+  @override
+  Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+    final isDarkTheme =
+        MediaQuery.of(context).platformBrightness == Brightness.dark;
+    final logo =
+        isDarkTheme ? 'assets/logo_white.png' : 'assets/logo_black.png';
+
+    return Scaffold(
+      body: SafeArea(
+        child: Stack(
+          children: [
+            Container(
+              height: screenHeight,
+              width: screenWidth,
+              padding: EdgeInsets.only(left: 20, right: 20, top: 80),
+              child: ListView(
+                children: listQuizesWidget(),
+              ),
+            ),
+            Container(
+                height: 80,
+                width: MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                  color: isDarkTheme ? Colors.grey.shade900 : Colors.white,
+                  //App.primaryColor,
+                  borderRadius: BorderRadius.only(
+                      //bottomLeft: Radius.circular(30),
+                      //bottomRight: Radius.circular(30)
+                      ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Color.fromRGBO(0, 0, 0, 0.2),
+                      blurRadius: 0.1,
+                      spreadRadius: 0.1,
+                    )
+                  ],
+                ),
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                //: EdgeInsets.all(10),
+                child: Center(
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      InkWell(
+                          child: Container(
+                            child: Text(
+                              "👈",
+                              style: TextStyle(
+                                fontSize: 25,
+                                color: Color(0xFF333333),
+                                //Colors.white,
+                                fontWeight: FontWeight.bold,
+                                //fontFamily:
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                            /*Icon(
+                            Icons.arrow_back_rounded, // arrow_back_ios_sharp
+                            color: App.myBlack, size: 30,
+                          ),*/
+                            margin: EdgeInsets.only(right: 0),
+                            decoration: BoxDecoration(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(20))),
+                          ),
+                          onTap: () {
+                            Navigator.pop(context);
+                          }),
+                      Text(
+                        "Quizes", //"Aprende sobre matematicas",
+                        style: TextStyle(
+                          fontSize: 21,
+                          // color: App.myBlack,
+                          //Colors.white,
+                          fontWeight: FontWeight.w900,
+                          //fontFamily:
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      Container(
+                        width: 45,
+                        height: 45,
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage(logo), fit: BoxFit.cover)),
+                      ),
+                    ],
+                  ),
+                )),
+          ],
+        ),
+      ),
+    );
+  }
+
+  List<Widget> listQuizesWidget() {
+    List<Widget> quizesWidgets = [];
+    courseQuiz.quizes.forEach((quiz) {
+      quizesWidgets.add(QuizItem(
+        quiz: quiz,
+      ));
+    });
+
+    return quizesWidgets;
+  }
+}
