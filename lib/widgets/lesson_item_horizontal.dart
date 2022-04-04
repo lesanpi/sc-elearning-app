@@ -40,7 +40,7 @@ class LessonItemHorizontal extends StatelessWidget {
                   topLeft: Radius.circular(20), topRight: Radius.circular(20)),
               image: DecorationImage(
                 // NetworkImage(lesson.image_url), fit: BoxFit.cover)
-                fit: BoxFit.cover,
+                fit: BoxFit.fitHeight,
                 image: CachedNetworkImageProvider(lesson.image_url),
               ),
             ),

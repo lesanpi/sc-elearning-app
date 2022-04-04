@@ -100,9 +100,9 @@ class LessonItemVertical extends StatelessWidget {
                   )
                 ],
                 image: DecorationImage(
-                  image: CachedNetworkImageProvider(lesson.image_url),
-                  fit: BoxFit.cover,
-                )),
+                    image: CachedNetworkImageProvider(lesson.image_url),
+                    fit: BoxFit.cover,
+                    alignment: Alignment.centerLeft)),
           ),
           Container(
             //color: Colors.green,

@@ -75,7 +75,8 @@ class GuideItem extends StatelessWidget {
     this.width = screenWidth - 20;
 
     if (this.mini)
-      return Container(
+      return InkWell(
+        child: Container(
         width: screenWidth,
         height: 80,
         margin: EdgeInsets.only(
@@ -125,6 +126,11 @@ class GuideItem extends StatelessWidget {
             )
           ],
         ),
+      ),
+        onTap: () async {
+          print(guide.url);
+          launchURL(guide.url);
+        },
       );
 
     return InkWell(
