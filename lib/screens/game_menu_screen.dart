@@ -122,7 +122,7 @@ class GameMenuScreen extends StatelessWidget {
       courseQuizItems.add(CourseQuizMenuItem(
         courseQuiz: courseQuiz,
         color: colors[i],
-        emoji: emojis[i],
+        emoji: "assets/${i + 1}.png",
       ));
       i++;
     });

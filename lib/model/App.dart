@@ -9,11 +9,16 @@ import 'package:sc_elearning/model/Quiz.dart';
 
 List<String> emojis = ["🦁", "🦒", "🐊", "🦜", "🐳"];
 List<Color> colors = [
-  App.primaryColor,
-  App.gold,
-  Colors.lightGreen,
-  Colors.redAccent,
-  Colors.indigoAccent
+  Color(0xFFFFAC2F),
+  Color(0xFFCB4949),
+  Color(0xFF03989E),
+  Color(0xFF5A8BA6),
+  Color(0xFF8C74BD),
+  // App.primaryColor,
+  // App.gold,
+  // Colors.lightGreen,
+  // Colors.redAccent,
+// Colors.indigoAccent
 ];
 
 class App {

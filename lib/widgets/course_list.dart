@@ -52,13 +52,6 @@ class CourseList extends StatelessWidget {
   List<Widget> courseListView(List<Course> course_list, BuildContext context) {
     List<Widget> courseListItems = [];
     int i = 0;
-    List<Color> colors = [
-      App.primaryColor,
-      App.gold,
-      Colors.lightGreen,
-      Colors.redAccent,
-      Colors.indigoAccent
-    ];
     List<String> emojis = ["🦁", "🦒", "🐊", "🦜", "🐳"];
     course_list.forEach((course) {
       courseListItems

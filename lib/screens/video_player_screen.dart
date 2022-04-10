@@ -8,6 +8,7 @@ import 'package:sc_elearning/model/App.dart';
 import 'package:sc_elearning/model/Course.dart';
 import 'package:sc_elearning/model/Lesson.dart';
 import 'package:sc_elearning/widgets/content_list.dart';
+import 'package:sc_elearning/widgets/player_content_list.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 const List<Color> _kDefaultRainbowColors = [
@@ -258,10 +259,9 @@ class _VideoPlayerScreen extends State<VideoPlayerScreen> {
                   ),
                 ),
                 Expanded(
-                  child: ContentList(
-                    contentList: widget.course.contentList,
-                    mini: true,
+                  child: PlayerContentList(
                     course: widget.course,
+                    contentList: widget.course.contentList,
                     currentContentId: widget.lesson.id,
                   ),
                 ),

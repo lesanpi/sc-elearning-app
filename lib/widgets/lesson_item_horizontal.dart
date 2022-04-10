@@ -38,11 +38,13 @@ class LessonItemHorizontal extends StatelessWidget {
               color: Colors.black12,
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(20), topRight: Radius.circular(20)),
-              image: DecorationImage(
-                // NetworkImage(lesson.image_url), fit: BoxFit.cover)
-                fit: BoxFit.fitHeight,
-                image: CachedNetworkImageProvider(lesson.image_url),
-              ),
+              image: lesson.image_url.isEmpty
+                  ? null
+                  : DecorationImage(
+                      // NetworkImage(lesson.image_url), fit: BoxFit.cover)
+                      fit: BoxFit.fitWidth,
+                      image: CachedNetworkImageProvider(lesson.image_url),
+                    ),
             ),
           ),
           Container(
@@ -52,6 +54,7 @@ class LessonItemHorizontal extends StatelessWidget {
                 Text(
                   lesson.title,
                   maxLines: 1,
+                  textAlign: TextAlign.left,
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       // color: Colors.black54,

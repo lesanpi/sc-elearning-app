@@ -53,17 +53,17 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void initialization() async {
-    final isDarkTheme =
-        MediaQuery.of(context).platformBrightness == Brightness.dark;
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarColor: isDarkTheme ? Colors.grey.shade900 : Colors.white,
-      systemNavigationBarColor:
-          isDarkTheme ? Colors.grey.shade900 : Colors.white,
-      systemNavigationBarIconBrightness:
-          isDarkTheme ? Brightness.light : Brightness.dark,
-      statusBarBrightness: isDarkTheme ? Brightness.dark : Brightness.light,
-      statusBarIconBrightness: isDarkTheme ? Brightness.light : Brightness.dark,
-    ));
+    // final isDarkTheme =
+    //     MediaQuery.of(context).platformBrightness == Brightness.dark;
+    // SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    //   statusBarColor: isDarkTheme ? Colors.grey.shade900 : Colors.white,
+    //   systemNavigationBarColor:
+    //       isDarkTheme ? Colors.grey.shade900 : Colors.white,
+    //   systemNavigationBarIconBrightness:
+    //       isDarkTheme ? Brightness.light : Brightness.dark,
+    //   statusBarBrightness: isDarkTheme ? Brightness.dark : Brightness.light,
+    //   statusBarIconBrightness: isDarkTheme ? Brightness.light : Brightness.dark,
+    // ));
     // await Future.delayed(const Duration(seconds: 3));
     // FlutterNativeSplash.remove();
   }

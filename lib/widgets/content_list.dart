@@ -30,47 +30,48 @@ class ContentList extends StatelessWidget {
     final isDarkTheme =
         MediaQuery.of(context).platformBrightness == Brightness.dark;
     return Container(
-      margin: EdgeInsets.only(
-        left: this.mini ? 0 : 20,
-        right: this.mini ? 0 : 20,
-        top: mini ? 0 : 30,
-      ),
-      child: mini
-          ? Column(
-              children: [
-                Container(
-                  child: Text(
-                    "Lecciones",
-                    style: TextStyle(
-                      color: isDarkTheme
-                          ? Colors.grey.shade100
-                          : Color(0xFF333333),
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
+        margin: EdgeInsets.only(
+          left: this.mini ? 0 : 20,
+          right: this.mini ? 0 : 20,
+          top: mini ? 0 : 30,
+        ),
+        child: SingleChildScrollView(
+          child: mini
+              ? Column(
+                  children: [
+                    Container(
+                      child: Text(
+                        "Lecciones",
+                        style: TextStyle(
+                          color: isDarkTheme
+                              ? Colors.grey.shade100
+                              : Color(0xFF333333),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                        ),
+                      ),
+                      margin:
+                          EdgeInsets.only(left: this.mini ? 20 : 0, bottom: 10),
+                      width: screenWidth,
                     ),
-                  ),
-                  margin: EdgeInsets.only(left: this.mini ? 20 : 0, bottom: 10),
-                  width: screenWidth,
-                ),
-                Expanded(
-                  child: Container(
-                    child: MediaQuery.removePadding(
-                        context: context,
-                        removeTop: true,
-                        child: ListView(
-                          children: listUi(contentList, isDarkTheme),
-                        )),
-                    width: screenWidth,
-                  ),
+                    Container(
+                      child: MediaQuery.removePadding(
+                          context: context,
+                          removeTop: true,
+                          child: ListView(
+                            children: listUi(contentList, isDarkTheme),
+                          )),
+                      width: screenWidth,
+                    )
+                  ],
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                 )
-              ],
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-            )
-          : Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: listUi(contentList, isDarkTheme)),
-    );
+              : Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: listUi(contentList, isDarkTheme),
+                ),
+        ));
   }
 
   List<Widget> listUi(List<Content> contentList, bool isDarkTheme) {
@@ -111,7 +112,7 @@ class ContentList extends StatelessWidget {
       ),
     ));
 
-    return listUi;
+    return contentItems;
   }
 
   List contentListItems(List<Content> contentList) {

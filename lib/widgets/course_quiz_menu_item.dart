@@ -29,51 +29,47 @@ class CourseQuizMenuItem extends StatelessWidget {
               ),
               child: Row(
                 children: [
-                  Container(
-                    width: (screenWidth - 50 - 60) / 3,
-                    height: 100,
-                    child: Text(
+                  Expanded(
+                    flex: 5,
+                    child: Image.asset(
                       emoji,
-                      style: TextStyle(
-                        fontSize: (screenWidth - 50 - 60) / 4,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        //fontFamily:
-                      ),
+                      width: 150,
+                      height: 150,
                     ),
                   ),
-                  Container(
-                    height: 150,
-                    width: 200,
-                    padding: EdgeInsets.symmetric(horizontal: 10),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          courseQuiz.name,
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 30,
+                  Expanded(
+                    flex: 6,
+                    child: Container(
+                      padding: EdgeInsets.symmetric(horizontal: 10),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            courseQuiz.name,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 30,
+                            ),
+                            textAlign: TextAlign.left,
                           ),
-                          textAlign: TextAlign.left,
-                        ),
-                        Text(
-                          courseQuiz.description,
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w300,
-                            fontSize: 15,
+                          Text(
+                            courseQuiz.description,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w300,
+                              fontSize: 15,
+                            ),
+                            textAlign: TextAlign.left,
                           ),
-                          textAlign: TextAlign.left,
-                        ),
-                        ProgressBar(
-                          total: courseQuiz.quizes.length,
-                          id: courseQuiz.id,
-                          width: (screenWidth - 50 - 60 - 20) * 2 / 3,
-                        ),
-                      ],
+                          ProgressBar(
+                            total: courseQuiz.quizes.length,
+                            id: courseQuiz.id,
+                            width: (screenWidth - 50 - 60 - 20) * 2 / 3,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],

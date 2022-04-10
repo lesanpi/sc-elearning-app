@@ -77,56 +77,59 @@ class GuideItem extends StatelessWidget {
     if (this.mini)
       return InkWell(
         child: Container(
-        width: screenWidth,
-        height: 80,
-        margin: EdgeInsets.only(
-          top: 1,
-        ),
-        padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-        decoration: BoxDecoration(
-          color: isDarkTheme ? Colors.grey.shade900 : Colors.white,
-          boxShadow: [
-            BoxShadow(
-              color: Color.fromRGBO(0, 0, 0, 0.1),
-              blurRadius: 1,
-              spreadRadius: 0.1,
-            )
-          ],
-        ),
-        child: Row(
-          children: [
-            InkWell(
-              child: Text(
-                "📖",
-                style: TextStyle(fontSize: 25),
-              ),
-              /*Icon(
+          width: screenWidth,
+          height: 80,
+          margin: EdgeInsets.only(
+            top: 1,
+          ),
+          padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+          decoration: BoxDecoration(
+            color: isDarkTheme ? Colors.grey.shade900 : Colors.white,
+            boxShadow: [
+              BoxShadow(
+                color: Color.fromRGBO(0, 0, 0, 0.1),
+                blurRadius: 1,
+                spreadRadius: 0.1,
+              )
+            ],
+          ),
+          child: Row(
+            children: [
+              InkWell(
+                child: Text(
+                  "📖",
+                  style: TextStyle(fontSize: 25),
+                ),
+                /*Icon(
                 CupertinoIcons.arrow_uturn_right_circle_fill,
                 color: App.myBlack,//App.primaryColor,
                 size: 35,
               ),*/
-              onTap: () async {
-                var tempDir = await getTemporaryDirectory();
-                String fullPath = tempDir.path + "/boo2.pdf'";
-                print('full path ${fullPath}');
+                onTap: () async {
+                  var tempDir = await getTemporaryDirectory();
+                  String fullPath = tempDir.path + "/boo2.pdf'";
+                  print('full path ${fullPath}');
 
-                download2(dio, fullPath);
-              },
-            ),
-            Container(
-              child: Text(
-                guide.title,
-                style: TextStyle(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 15,
-                  // color: Color(0xFF333333), //Colors.black87,
-                ),
+                  download2(dio, fullPath);
+                },
               ),
-              margin: EdgeInsets.symmetric(horizontal: 10),
-            )
-          ],
+              Expanded(
+                child: Container(
+                  child: Text(
+                    guide.title,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 15,
+                      // color: Color(0xFF333333), //Colors.black87,
+                    ),
+                  ),
+                  margin: EdgeInsets.symmetric(horizontal: 10),
+                ),
+              )
+            ],
+          ),
         ),
-      ),
         onTap: () async {
           print(guide.url);
           launchURL(guide.url);

@@ -34,14 +34,10 @@ class CourseItem extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              child: Text(
-                emoji,
-                style: TextStyle(
-                  fontSize: 55,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  //fontFamily:
-                ),
+              child: Image.asset(
+                course.emoji,
+                width: 120,
+                height: 120,
               ),
               margin: EdgeInsets.symmetric(vertical: 0),
             ),
