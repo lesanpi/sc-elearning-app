@@ -46,9 +46,12 @@ class LessonItemVertical extends StatelessWidget {
                 style: TextStyle(fontSize: 25),
               ),
             ),
-            Container(
+            Expanded(
+              child: Container(
               child: Text(
                 lesson.title,
+                    overflow: TextOverflow.ellipsis,
+
                 style: TextStyle(
                     fontWeight: FontWeight.w500,
                     color: currentLesson
@@ -59,6 +62,7 @@ class LessonItemVertical extends StatelessWidget {
                     fontSize: 15),
               ),
               margin: EdgeInsets.symmetric(horizontal: 10),
+            ),
             )
           ],
         ),

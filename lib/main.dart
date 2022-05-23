@@ -88,45 +88,46 @@ class _MyHomePageState extends State<MyHomePage> {
         width: MediaQuery.of(context).size.width,
         height: 100,
         child: Container(
-            decoration: const BoxDecoration(
-              color: Colors.white,
-              boxShadow: [
-                BoxShadow(
-                  color: Color.fromRGBO(0, 0, 0, 0.2),
-                  blurRadius: 0.1,
-                  spreadRadius: 0.1,
-                )
-              ],
-            ),
-            child: DefaultTabController(
-              child: Material(
-                color: isDarkTheme ? Colors.grey.shade900 : Colors.white,
-                child: TabBar(
-                  tabs: const [
-                    Tab(
-                        icon: Text(
+          decoration: const BoxDecoration(
+            color: Colors.white,
+            boxShadow: [
+              BoxShadow(
+                color: Color.fromRGBO(0, 0, 0, 0.2),
+                blurRadius: 0.1,
+                spreadRadius: 0.1,
+              )
+            ],
+          ),
+          child: DefaultTabController(
+            child: Material(
+              color: isDarkTheme ? Colors.grey.shade900 : Colors.white,
+              child: TabBar(
+                tabs: const [
+                  Tab(
+                    icon: Text(
                       "📚",
                       style: TextStyle(fontSize: 35),
-                    )
-                        //Icon(Icons.home, size: 35.0)
-                        ),
-                    Tab(
-                        icon: Text(
+                    ),
+                    //Icon(Icons.home, size: 35.0)
+                  ),
+                  Tab(
+                    icon: Text(
                       "🎮",
                       style: TextStyle(fontSize: 35),
-                    )
-                        //Icon(Icons.import_contacts, size: 35.0)
-                        ),
-                  ],
-                  labelColor: App.myBlack,
-                  // //📚unselectedLabelColor: Colors.black26,
-                  indicatorColor: App.myBlack,
-                  onTap: _onItemTapped,
-                ),
+                    ),
+                    //Icon(Icons.import_contacts, size: 35.0)
+                  ),
+                ],
+                labelColor: App.myBlack,
+                // //📚unselectedLabelColor: Colors.black26,
+                indicatorColor: App.myBlack,
+                onTap: _onItemTapped,
               ),
-              length: 2,
-              initialIndex: 0,
-            )),
+            ),
+            length: 2,
+            initialIndex: 0,
+          ),
+        ),
       ),
     );
   }

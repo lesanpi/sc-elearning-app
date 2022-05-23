@@ -5,6 +5,7 @@ import 'package:sc_elearning/screens/result_screen.dart';
 import 'package:sc_elearning/widgets/question_option.dart';
 import 'package:sc_elearning/widgets/quiz_medal.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class QuestionScreen extends StatefulWidget {
   Quiz quiz;
@@ -64,7 +65,8 @@ class QuestionScreenState extends State<QuestionScreen> {
             width: screenWidth,
             height: screenHeight,
             padding: EdgeInsets.symmetric(horizontal: 30),
-            child: Column(
+            child: SingleChildScrollView(
+              child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -113,6 +115,11 @@ class QuestionScreenState extends State<QuestionScreen> {
                   ),
                   margin: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
                 ),
+                if(widget.quiz.questions[widget.questionNum].img.isNotEmpty) CachedNetworkImage(
+        imageUrl: widget.quiz.questions[widget.questionNum].img,
+        placeholder: (context, url) => CircularProgressIndicator(),
+        errorWidget: (context, url, error) => Icon(Icons.error),
+     ),
                 InkWell(
                   child: QuestionOption(
                       option:
@@ -228,8 +235,10 @@ class QuestionScreenState extends State<QuestionScreen> {
                       }
                     },
                   ),
-                )
+                ),
+                const SizedBox(height: 20),
               ],
+            ),
             ),
           )),
         ),

@@ -243,6 +243,8 @@ class _VideoPlayerScreen extends State<VideoPlayerScreen> {
                             fontSize: 20,
                             fontWeight: FontWeight.bold),
                       ),
+                      const SizedBox(height: 10),
+
                       SizedBox(
                         child: Text(
                           widget.lesson.description,
@@ -258,6 +260,7 @@ class _VideoPlayerScreen extends State<VideoPlayerScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                   ),
                 ),
+                const SizedBox(height: 20),
                 Expanded(
                   child: PlayerContentList(
                     course: widget.course,

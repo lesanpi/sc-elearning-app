@@ -107,12 +107,14 @@ class App {
     List<Question> _questions = [];
     for (int i = 0; i < dataQuiz.length; i++) {
       _questions.add(Question(
-          question: dataQuiz[i]["question"],
-          option_1: dataQuiz[i]["option_1"],
-          option_2: dataQuiz[i]["option_2"],
-          option_3: dataQuiz[i]["option_3"],
-          option_4: dataQuiz[i]["option_4"],
-          correctOption: dataQuiz[i]["correct_option"]));
+        question: dataQuiz[i]["question"],
+        option_1: dataQuiz[i]["option_1"],
+        option_2: dataQuiz[i]["option_2"],
+        option_3: dataQuiz[i]["option_3"],
+        option_4: dataQuiz[i]["option_4"],
+        correctOption: dataQuiz[i]["correct_option"],
+        img: dataQuiz[i]["img"] ?? "",
+      ));
     }
 
     return _questions;
