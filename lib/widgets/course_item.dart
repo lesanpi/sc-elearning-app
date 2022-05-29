@@ -15,7 +15,7 @@ class CourseItem extends StatelessWidget {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
 
-    return InkWell(
+    return GestureDetector(
       child: Container(
         decoration: BoxDecoration(
             color: color, //App.primaryColor,

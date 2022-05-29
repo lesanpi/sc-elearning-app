@@ -41,7 +41,7 @@ class LessonItem extends StatelessWidget {
       );
     }
 
-    return InkWell(
+    return GestureDetector(
       child: LessonItemHorizontal(
         lesson: lesson,
         mini: mini,

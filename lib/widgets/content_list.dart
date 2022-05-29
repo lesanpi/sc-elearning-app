@@ -139,6 +139,8 @@ class ContentList extends StatelessWidget {
       }
     });
 
+    contentListWidget.add(SizedBox(height: 60));
+
     return [height, contentListWidget];
   }
 }
