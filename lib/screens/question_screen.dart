@@ -115,11 +115,15 @@ class QuestionScreenState extends State<QuestionScreen> {
                   ),
                   margin: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
                 ),
-                if(widget.quiz.questions[widget.questionNum].img.isNotEmpty) CachedNetworkImage(
-        imageUrl: widget.quiz.questions[widget.questionNum].img,
-        placeholder: (context, url) => CircularProgressIndicator(),
-        errorWidget: (context, url, error) => Icon(Icons.error),
-     ),
+                if(widget.quiz.questions[widget.questionNum].img.isNotEmpty) 
+                  Container(
+                    color: Colors.white,
+                    child: CachedNetworkImage(
+                        imageUrl: widget.quiz.questions[widget.questionNum].img,
+                        placeholder: (context, url) => CircularProgressIndicator(),
+                        errorWidget: (context, url, error) => Icon(Icons.error),
+                    ),
+                  ),
                 InkWell(
                   child: QuestionOption(
                       option:
