@@ -8,6 +8,10 @@ import 'package:sc_elearning/screens/home_screen.dart';
 
 void main() {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  // await SystemChrome.setPreferredOrientations([
+  //   DeviceOrientation.portraitUp,
+  // ]);
+
   runApp(const MyApp());
 }
 
